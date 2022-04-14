@@ -31,7 +31,7 @@ function computerPlay() {
 }
 
 console.log(computerPlay());
-
+console.log(typeof(computerPlay()));
 
 
 
