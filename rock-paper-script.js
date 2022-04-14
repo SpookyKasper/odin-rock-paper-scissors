@@ -16,15 +16,21 @@ let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
 console.log(rockPaSc);
 console.log(typeof(rockPaSc));
 
-/* Create a function named 'getUpTo3' thant gets a number between 0 and 3 */
+/* Create a function named 'getUpTo3' that gets a number between 0 and 3 */
 
 function getUpTo3() {
     return getRandomInt(3);
 };
 
+console.log(getUpTo3());
+
 /* Create a function named 'computerPlay' that randomly returns either 'Rock', 'Paper' or 'Scissors' */
 
-console.log(getUpTo3());
+function computerPlay() {
+    return rockPaSc[getUpTo3()];
+}
+
+console.log(computerPlay());
 
 
 
