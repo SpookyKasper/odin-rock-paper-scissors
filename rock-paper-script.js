@@ -34,12 +34,32 @@ Rock Paper Scissors, it takes two Parameters '
 playerSelection' and 'computerSelection'
 and then return a string that declares the winner */
 
+/* Declares winning string, tie and loosing string */
 
-let winString = "You Lose! Paper beats Rock";
+let winString = "You Win! *playerSelection* beats *computerSelection* ";
+let tieString = "It's a tie!"
+let loseString = "You Lose *computerSelection* beats *playerSelection* "
+
+/* Reminder of rockPaSc array positions
+0 = Rock
+1 = Paper
+2 = Scissors
+*/
+
+let playerSelection = prompt('Rock Paper or Sciscors ?');
+
+console.log(playerSelection);
 
 function oneRound(playerSelection, computerSelection){
-
+    if (playerSelection === computerSelection) {
+        return tieString;
+    } else if (playerSelection === 0 && computerSelection === 1){
+        /* computer wins */
+    }
+    return winString
 }
+
+console.log(oneRound());
 
 
 
