@@ -42,10 +42,10 @@ Rock Paper Scissors, it takes two Parameters '
 playerSelection' and 'computerSelection'
 and then return a string that declares the winner */
 
-let winstring = "You Lose! Paper beats Rock";
+let winString = "You Lose! Paper beats Rock";
 
 function oneRound(playerSelection, computerSelection){
-    
+
 }
 
 
