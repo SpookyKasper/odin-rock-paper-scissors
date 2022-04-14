@@ -8,7 +8,12 @@ console.log("Hello World");
 function computerPlay() {
 }
 
-/* Create an array containing computer options for 'computerPlay' function */
+/* Create an array object containing computer options for 'computerPlay' function */
+
+let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
+
+console.log(rockPaSc);
+console.log(typeof(rockPaSc));
 
 
 
