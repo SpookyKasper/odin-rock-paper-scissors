@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 
 /*---------------------------------- Create a Rock Paper Scissors game where the player plays against the computer --------------------------------*/
 
@@ -26,9 +24,9 @@ function computerPlay() {
 /* Declares a variable of type string that
 stores the result of 'computerPlay' */
 
-let computerSelection = computerPlay();
+let computerPick = computerPlay();
 
-console.log(computerSelection);
+console.log(computerPick);
 
 /* Write a function that plays a single round of 
 Rock Paper Scissors, it takes two Parameters'
@@ -44,7 +42,7 @@ let loseString = "You Lose *computerSelection* beats *playerSelection* "
 /* Declares a variable named 'playerSelection' of type string to
 stores the userInputed string */
 
-let playerSelection = prompt('Rock Paper or Sciscors ?');
+let playerPick = prompt('Rock Paper or Sciscors ?');
 
 /* Create a function named 'capitalizeStrings' to 
 capitalize strings */
@@ -53,14 +51,14 @@ function capitalizeStrings(someString) {
     return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
 }
 
-console.log(capitalizeStrings(playerSelection));
+console.log(capitalizeStrings(playerPick));
 
 /* Declares a variable called 'playerSelectionCap' of type string to 
 store capitalized playerSelection */
 
-let playerSelectionCap = capitalizeStrings(playerSelection);
+let playerPickCap = capitalizeStrings(playerPick);
 
-console.log(playerSelectionCap);
+console.log(playerPickCap);
 
 
 /* Reminder of rockPaSc array positions
@@ -69,14 +67,19 @@ console.log(playerSelectionCap);
 2 = Scissors */
 
 
-function oneRound(playerSelectionCap, computerSelection){
-    if (playerSelection === computerSelection) {
+function oneRound(playerSelection, computerSelection){
+    if (playerSelectionCap == computerSelection) {
         return tieString;
-    } else if (playerSelection === 0 && computerSelection === 1){
+    } else if (playerSelection == 0 && computerSelection == 1) {
         /* computer wins */
-    }
+    } else if (playerSelection == 1 && computerSelection == 0) {
+        /* player wins */
+    } else if (playerSelection == 1 && computerSelection == 2) {
+        /* computer wins */
+    } else if (playerSelection == 2 && computerSelection == 0) {
+        /* computer wins */
+    } else if (playerSelection == 2 && computerSelection == 1) {
+            /* computer wins */
+    
     return winString
 }
-
-console.log(oneRound());
-
