@@ -15,9 +15,6 @@ contains the 3 computer options for the game */
 
 let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
 
-console.log(rockPaSc);
-console.log(typeof(rockPaSc));
-
 /* Create a function named 'computerPlay' that 
 uses 'getUpto3' and 
 randomly returns either 'Rock', 'Paper' or 'Scissors' */
@@ -26,11 +23,15 @@ function computerPlay() {
     return rockPaSc[getRandomInt(3)];
 }
 
-console.log(computerPlay());
-console.log(typeof(computerPlay()));
+/* Declares a variable of type string that
+stores the result of 'computerPlay' */
+
+let computerSelection = computerPlay();
+
+console.log(computerSelection);
 
 /* Write a function that plays a single round of 
-Rock Paper Scissors, it takes two Parameters '
+Rock Paper Scissors, it takes two Parameters'
 playerSelection' and 'computerSelection'
 and then return a string that declares the winner */
 
@@ -40,17 +41,35 @@ let winString = "You Win! *playerSelection* beats *computerSelection* ";
 let tieString = "It's a tie!"
 let loseString = "You Lose *computerSelection* beats *playerSelection* "
 
-/* Reminder of rockPaSc array positions
-0 = Rock
-1 = Paper
-2 = Scissors
-*/
+/* Declares a variable named 'playerSelection' of type string to
+stores the userInputed string */
 
 let playerSelection = prompt('Rock Paper or Sciscors ?');
 
-console.log(playerSelection);
+/* Create a function named 'capitalizeStrings' to 
+capitalize strings */
 
-function oneRound(playerSelection, computerSelection){
+function capitalizeStrings(someString) {
+    return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
+}
+
+console.log(capitalizeStrings(playerSelection));
+
+/* Declares a variable called 'playerSelectionCap' of type string to 
+store capitalized playerSelection */
+
+let playerSelectionCap = capitalizeStrings(playerSelection);
+
+console.log(playerSelectionCap);
+
+
+/* Reminder of rockPaSc array positions
+0 = Rock
+1 = Paper
+2 = Scissors */
+
+
+function oneRound(playerSelectionCap, computerSelection){
     if (playerSelection === computerSelection) {
         return tieString;
     } else if (playerSelection === 0 && computerSelection === 1){
@@ -60,6 +79,4 @@ function oneRound(playerSelection, computerSelection){
 }
 
 console.log(oneRound());
-
-
 
