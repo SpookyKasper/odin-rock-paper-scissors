@@ -14,8 +14,8 @@ contains the 3 computer options for the game */
 let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
 
 /* Create a function named 'computerPlay' that 
-uses 'getUpto3' and 
-randomly returns either 'Rock', 'Paper' or 'Scissors' */
+uses 'getRandomInt' to 
+randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rockPaSc' array */
 
 function computerPlay() {
     return rockPaSc[getRandomInt(3)];
@@ -24,25 +24,14 @@ function computerPlay() {
 /* Declares a variable of type string that
 stores the result of 'computerPlay' */
 
-let computerPick = computerPlay();
-
-console.log(computerPick);
-
-/* Write a function that plays a single round of 
-Rock Paper Scissors, it takes two Parameters'
-playerSelection' and 'computerSelection'
-and then return a string that declares the winner */
-
-/* Declares winning string, tie and loosing string */
-
-let winString = "You Win! *playerSelection* beats *computerSelection* ";
-let tieString = "It's a tie!"
-let loseString = "You Lose *computerSelection* beats *playerSelection* "
+const computerPick = computerPlay();
 
 /* Declares a variable named 'playerSelection' of type string to
-stores the userInputed string */
+stores the user's selection */
 
-let playerPick = prompt('Rock Paper or Sciscors ?');
+let playerPick = prompt('Rock Paper or Scissors ?');
+
+/* Creates a function that 
 
 /* Create a function named 'capitalizeStrings' to 
 capitalize strings */
@@ -66,20 +55,28 @@ console.log(playerPickCap);
 1 = Paper
 2 = Scissors */
 
+/* Write a function that plays a single round of 
+Rock Paper Scissors, it takes two Parameters'
+playerSelection' and 'computerSelection'
+and then return a string that declares the winner */
+
 
 function oneRound(playerSelection, computerSelection){
-    if (playerSelectionCap == computerSelection) {
-        return tieString;
-    } else if (playerSelection == 0 && computerSelection == 1) {
-        /* computer wins */
-    } else if (playerSelection == 1 && computerSelection == 0) {
-        /* player wins */
-    } else if (playerSelection == 1 && computerSelection == 2) {
-        /* computer wins */
-    } else if (playerSelection == 2 && computerSelection == 0) {
-        /* computer wins */
-    } else if (playerSelection == 2 && computerSelection == 1) {
-            /* computer wins */
-    
-    return winString
+    /* Declares winning string, tie and loosing string */
+    let winString = `You Win! ${playerSelection} beats ${computerSelection}`;
+    let tieString = "It's a tie!"
+    let loseString = `You Lose ${computerSelection} beats ${playerSelection}`;
+    if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
+        return `${playerSelection} is not a valid option, please select Rock, Paper or Scissors`;
+    } else {
+        if (playerSelection == computerSelection) {
+            return tieString;
+        } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
+            return loseString;    
+        } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
+            return winString;
+        }
+    }
 }
+
+console.log(oneRound(playerPickCap, computerPick));
