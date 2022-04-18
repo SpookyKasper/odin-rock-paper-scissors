@@ -59,26 +59,27 @@ function oneRound(playerSelection, computerSelection) {
 
     /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
-        return `${playerSelection} is not a valid option, please select Rock, Paper or Scissors`;
+        console.log(`${playerSelection} is not a valid option, please select Rock, Paper or Scissors`);
+        return 'invalid';
     /* Compares computerSelection and playerSelection and return appropriate answer */    
     } else {
         if (playerSelection == computerSelection) {
             console.log(tieString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            return 0;
+            return 'tie';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
             ++computerScore;
             console.log(loseString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            return 1;
+            return 'lose';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
             ++playerScore;
             console.log(winString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            return 2;
+            return 'win';
         }
     }
 }
@@ -92,10 +93,16 @@ function oneRound(playerSelection, computerSelection) {
 runs 'oneRound' the passed number of times */
 function game(rounds){
     for (var i = 0; i < rounds; i++){
+        /* Declares a variable named roundResult of type string that
+        stores current result of oneRound() */
         let roundResult = oneRound();
-        if (roundResult == 0) {
+
+        /* Checks if roundResult equals tie or invalid and if true don't count round */
+        if (roundResult == 'tie' || roundResult == 'invalid') {
             i--
-        } 
+        }
+        /* Check if it's the last round and if true announce end of the game and winner */
+        if (i + 1) 
         console.log(roundResult);
         
     }
