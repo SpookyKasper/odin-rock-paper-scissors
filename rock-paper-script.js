@@ -32,13 +32,16 @@ function oneRound(playerSelection, computerSelection) {
 
     /* Create a function named 'capitalizeStrings' to 
     capitalize strings */
-    function capitalizeStrings(someString) {
+    function stringMagic(someString) {
+        if (someString === '') {
+            return 'not a valid option'
+        }
         return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
         }
 
     /* Declares variable named 'playerChoice' of type string that
-    stores capitalized user input of the prompt */
-    let playerChoice = capitalizeStrings(prompt('Rock Paper or Scissors ?'));
+    stores capitalized user input of the */
+    let playerChoice = stringMagic(prompt('Rock Paper or Scissors ?'));
 
     /* Assign playerChoice value to playerSelection and logs it */
     playerSelection = playerChoice;
@@ -51,6 +54,8 @@ function oneRound(playerSelection, computerSelection) {
     /* Assigns computerChoice value to computerSelection and logs it*/
     computerSelection = computerChoice;
     console.log(`Computer selection was ${computerSelection}`);
+
+    alert(`You picked ${playerSelection} the computer picked ${computerSelection}`)
 
     /* Declares winning string, tie and loosing string */
     let winString = `You won the round! ${playerSelection} beats ${computerSelection}`;
@@ -65,7 +70,10 @@ function oneRound(playerSelection, computerSelection) {
     /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
         console.log('invalid input');
-        alert(`${playerSelection} is not a valid option, please select Rock, Paper or Scissors`)
+        alert(`Arf! you typed ${playerSelection}  and it's kind of different from `
+            + `Rock, Paper or Scissors and my (stupid) computer program doesn't like that... `
+            + `please type Rock, Paper or Scissors `)
+ 
         return undefined;
     /* Compares computerSelection and playerSelection and return appropriate answer */    
     } else {
