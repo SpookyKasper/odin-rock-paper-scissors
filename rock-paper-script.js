@@ -3,8 +3,7 @@
 
 /* Write a function that plays a single round of Rock Paper Scissors, 
 take two parameters' playerSelection' and 'computerSelection'
-compare the parameters 
-return a string that declares the winner */
+compare the parameters and return a string 
 
 /* One Round:
 Ask user to pick Rock Paper or Scissors and store user input in variable 'playerSelection
@@ -33,8 +32,8 @@ function oneRound(playerSelection, computerSelection) {
     /* Create a function named 'capitalizeStrings' to 
     capitalize strings */
     function stringMagic(someString) {
-        if (someString === '') {
-            return 'not a valid option'
+        if (someString === null || someString === '') {
+            return 'nothing'
         }
         return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
         }
@@ -62,26 +61,22 @@ function oneRound(playerSelection, computerSelection) {
     let tieString = "It's a tie!"
     let loseString = `You lost this round bro... ${computerSelection} beats ${playerSelection}`;
 
-    /* Declares a handy string named new line of type string that 
-    stores breaking to a new line command */
-
-    let newLine = '\r\n';
-
     /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
         console.log('invalid input');
-        alert(`Arf! you typed ${playerSelection}  and it's kind of different from `
+        alert(`Arf! you typed ${playerSelection} and it's kind of different from `
             + `Rock, Paper or Scissors and my (stupid) computer program doesn't like that... `
-            + `please type Rock, Paper or Scissors `)
+            + `please type Rock, Paper or Scissors`)
  
         return undefined;
-    /* Compares computerSelection and playerSelection and return appropriate answer */    
+    /* Compares computerSelection and playerSelection and returns a string
+    accordingly */ 
     } else {
         if (playerSelection == computerSelection) {
             console.log(tieString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            alert(`${tieString} ${newLine} 
+            alert(`${tieString} 
             Computer Score: ${computerScore} 
             Player Score: ${playerScore}`);
             return 'tie';
