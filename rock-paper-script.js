@@ -3,80 +3,80 @@
 
 /* Create a function named 'getRandomInt' that 
 randomly returns an integer between 0 and passed argument */
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
 };
 
 /* Create an array object named 'rockPaSc' that
 contains the 3 computer options for the game */
-
 let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
 
 /* Create a function named 'computerPlay' that 
 uses 'getRandomInt' to 
 randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rockPaSc' array */
-
 function computerPlay() {
     return rockPaSc[getRandomInt(3)];
 }
 
-/* Declares a variable of type string that
-stores the result of 'computerPlay' */
-
-const computerPick = computerPlay();
-
-/* Declares a variable named 'playerSelection' of type string to
-stores the user's selection */
-
-let playerPick = prompt('Rock Paper or Scissors ?');
-
-/* Creates a function that 
-
 /* Create a function named 'capitalizeStrings' to 
 capitalize strings */
-
 function capitalizeStrings(someString) {
     return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
-}
+    }
 
-console.log(capitalizeStrings(playerPick));
+/* Write a function that plays a single round of Rock Paper Scissors, 
+take two parameters' playerSelection' and 'computerSelection'
+compare the parameters 
+return a string that declares the winner */
 
-/* Declares a variable called 'playerSelectionCap' of type string to 
-store capitalized playerSelection */
+/* One Round:
+Ask user to pick Rock Paper or Scissors and store user input in variable 'playerSelection
+Generate computer Pick and store it in a variable 'playerSelection'
+Compare the two picks and returns according */
 
-let playerPickCap = capitalizeStrings(playerPick);
+function oneRound(playerSelection, computerSelection) {
+    /* Declares variable named 'playerChoice' of type string that
+    stores capitalized user input of the prompt */
+    let playerChoice = capitalizeStrings(prompt('Rock Paper or Scissors ?'));
+    playerSelection = playerChoice;
+    console.log(`Your selection was ${playerSelection}`);
 
-console.log(playerPickCap);
+    /* Declares variable named 'playerChoice' of type string that
+    stores computer result of computerPlay function */
+    const computerChoice = computerPlay();
+    computerSelection = computerChoice;
+    console.log(`Computer selection was ${computerSelection}`);
 
-
-/* Reminder of rockPaSc array positions
-0 = Rock
-1 = Paper
-2 = Scissors */
-
-/* Write a function that plays a single round of 
-Rock Paper Scissors, it takes two Parameters'
-playerSelection' and 'computerSelection'
-and then return a string that declares the winner */
-
-
-function oneRound(playerSelection, computerSelection){
     /* Declares winning string, tie and loosing string */
     let winString = `You Win! ${playerSelection} beats ${computerSelection}`;
     let tieString = "It's a tie!"
     let loseString = `You Lose ${computerSelection} beats ${playerSelection}`;
+    
+    /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
         return `${playerSelection} is not a valid option, please select Rock, Paper or Scissors`;
+    /* Compares computerSelection and playerSelection and return appropriate answer */    
     } else {
         if (playerSelection == computerSelection) {
+            console.log(tieString);
             return tieString;
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
+            console.log(loseString);
             return loseString;    
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
+            console.log(winString);
             return winString;
         }
     }
 }
 
-console.log(oneRound(playerPickCap, computerPick));
+/* Create function named 'game()' that 
+runs 'oneRound' 5 times to make a 5 round game */
+function game(){
+    for (var i = 0; i < 5; i++){
+        oneRound(playerSelection, computerSelection);
+        console.log('salut les filles');
+    }
+}
+
+oneRound();
