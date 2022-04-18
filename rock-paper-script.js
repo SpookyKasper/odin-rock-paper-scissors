@@ -53,35 +53,47 @@ function oneRound(playerSelection, computerSelection) {
     console.log(`Computer selection was ${computerSelection}`);
 
     /* Declares winning string, tie and loosing string */
-    let winString = `You Win! ${playerSelection} beats ${computerSelection}`;
+    let winString = `You won the round! ${playerSelection} beats ${computerSelection}`;
     let tieString = "It's a tie!"
-    let loseString = `You Lose... ${computerSelection} beats ${playerSelection}`;
+    let loseString = `You lost this round bro... ${computerSelection} beats ${playerSelection}`;
+
+    /* Declares a handy string named new line of type string that 
+    stores breaking to a new line command */
+
+    let newLine = '\r\n';
 
     /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
-        console.log(`${playerSelection} is not a valid option, please select Rock, Paper or Scissors`);
-        return 'invalid';
+        console.log('invalid input');
+        alert(`${playerSelection} is not a valid option, please select Rock, Paper or Scissors`)
+        return undefined;
     /* Compares computerSelection and playerSelection and return appropriate answer */    
     } else {
         if (playerSelection == computerSelection) {
             console.log(tieString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            alert(`${tieString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
+            alert(`${tieString} ${newLine} 
+            Computer Score: ${computerScore} 
+            Player Score: ${playerScore}`);
             return 'tie';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
             ++computerScore;
             console.log(loseString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            alert(`${loseString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
+            alert(`${loseString}
+            Computer Score: ${computerScore} 
+            Player Score: ${playerScore}`);
             return 'lose';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
             ++playerScore;
             console.log(winString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            alert(`${winString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
+            alert(`${winString} 
+            Computer Score: ${computerScore} 
+            Player Score: ${playerScore}`);
             return 'win';
         }
     }
@@ -100,18 +112,27 @@ function game(rounds){
         stores current result of oneRound() */
         let roundResult = oneRound();
 
+        /* Declares winning or losing the game variables of type string 
+        with declared inital value */
+        let winGameString = `Congratulations! The game is over and you Won! Wouhouuouo!!!`;
+        let loseGameString = `Damn bro you where so close! try again!`;
+
         /* Checks if roundResult equals tie or invalid and if true don't count round */
-        if (roundResult == 'tie' || roundResult == 'invalid') {
+        if (roundResult == 'tie' || roundResult == undefined) {
             i--
         }
+        console.log(roundResult);
         /* Check if it's the last round and if true announce end of the game and winner */
         if (i + 1 == rounds) {
-            alert('c\'est la fin des haricots');
             if (computerScore > playerScore) {
-
+                console.log('computer wins')
+                alert(loseGameString)
+            } else {
+                console.log('player wins')
+                alert(winGameString)
             }
-        } 
-        console.log(roundResult);
+        }
+        
         
     }
 }
