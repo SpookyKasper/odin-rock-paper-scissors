@@ -58,13 +58,10 @@ function oneRound(playerSelection, computerSelection) {
     /* Compares computerSelection and playerSelection and return appropriate answer */    
     } else {
         if (playerSelection == computerSelection) {
-            console.log(tieString);
             return tieString;
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
-            console.log(loseString);
             return loseString;    
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
-            console.log(winString);
             return winString;
         }
     }
@@ -72,11 +69,11 @@ function oneRound(playerSelection, computerSelection) {
 
 /* Create function named 'game()' that 
 runs 'oneRound' 5 times to make a 5 round game */
-function game(){
-    for (var i = 0; i < 5; i++){
-        oneRound();
-        console.log('salut les filles');
+function game(rounds){
+    for (var i = 0; i < rounds; i++){
+        console.log(i);
+        console.log(oneRound());
     }
 }
 
-game();
+game(3);
