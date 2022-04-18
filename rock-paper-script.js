@@ -51,7 +51,7 @@ function oneRound(playerSelection, computerSelection) {
     let winString = `You Win! ${playerSelection} beats ${computerSelection}`;
     let tieString = "It's a tie!"
     let loseString = `You Lose ${computerSelection} beats ${playerSelection}`;
-    
+
     /* Checks if input equals Rock Paper or Scisors and returns 'not a valid option' if not */
     if (playerSelection != 'Rock' && playerSelection != 'Paper' && playerSelection != 'Scissors' ) {
         return `${playerSelection} is not a valid option, please select Rock, Paper or Scissors`;
@@ -74,9 +74,9 @@ function oneRound(playerSelection, computerSelection) {
 runs 'oneRound' 5 times to make a 5 round game */
 function game(){
     for (var i = 0; i < 5; i++){
-        oneRound(playerSelection, computerSelection);
+        oneRound();
         console.log('salut les filles');
     }
 }
 
-oneRound();
+game();
