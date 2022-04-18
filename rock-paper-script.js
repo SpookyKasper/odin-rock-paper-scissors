@@ -92,7 +92,10 @@ function oneRound(playerSelection, computerSelection) {
 runs 'oneRound' the passed number of times */
 function game(rounds){
     for (var i = 0; i < rounds; i++){
-        let roundResult = oneRound(); 
+        let roundResult = oneRound();
+        if (roundResult == 0) {
+            i--
+        } 
         console.log(roundResult);
         
     }
