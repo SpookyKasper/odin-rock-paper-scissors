@@ -67,24 +67,27 @@ function oneRound(playerSelection, computerSelection) {
             console.log(tieString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
+            alert(`${tieString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
             return 'tie';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
             ++computerScore;
             console.log(loseString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
+            alert(`${loseString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
             return 'lose';
         } else if ( (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors')) {
             ++playerScore;
             console.log(winString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
+            alert(`${winString} Computer Score: ${computerScore} Player Score: ${playerScore}`);
             return 'win';
         }
     }
 }
 
-/* Declares score and round variables of type number with initial value of 0 */
+/* Declares score variables of type number with initial value of 0 */
     let computerScore = 0;
     let playerScore = 0;
 
@@ -102,7 +105,12 @@ function game(rounds){
             i--
         }
         /* Check if it's the last round and if true announce end of the game and winner */
-        if (i + 1) 
+        if (i + 1 == rounds) {
+            alert('c\'est la fin des haricots');
+            if (computerScore > playerScore) {
+
+            }
+        } 
         console.log(roundResult);
         
     }
