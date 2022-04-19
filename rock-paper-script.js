@@ -32,11 +32,12 @@ function oneRound(playerSelection, computerSelection) {
     /* Create a function named 'capitalizeStrings' to 
     capitalize strings */
     function stringMagic(someString) {
-        if (someString === null || someString === '') {
-            return 'nothing'
+        if (someString === '' ) {
+            return 'nothing';
+        } else {
+            return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
         }
-        return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
-        }
+    }   
 
     /* Declares variable named 'playerChoice' of type string that
     stores capitalized user input of the */
@@ -54,7 +55,6 @@ function oneRound(playerSelection, computerSelection) {
     computerSelection = computerChoice;
     console.log(`Computer selection was ${computerSelection}`);
 
-    alert(`You picked ${playerSelection} the computer picked ${computerSelection}`)
 
     /* Declares winning string, tie and loosing string */
     let winString = `You won the round! ${playerSelection} beats ${computerSelection}`;
@@ -67,11 +67,13 @@ function oneRound(playerSelection, computerSelection) {
         alert(`Arf! you typed ${playerSelection} and it's kind of different from `
             + `Rock, Paper or Scissors and my (stupid) computer program doesn't like that... `
             + `please type Rock, Paper or Scissors`)
- 
         return undefined;
-    /* Compares computerSelection and playerSelection and returns a string
-    accordingly */ 
+
     } else {
+        /* alerts what the user and computer selection are */
+        alert(`You picked ${playerSelection} the computer picked ${computerSelection}`)
+        /* Compares computerSelection and playerSelection and 
+        returns a string depending on the result of the comparaison */ 
         if (playerSelection == computerSelection) {
             console.log(tieString);
             console.log(`Computer Score: ${computerScore}`);
@@ -94,7 +96,7 @@ function oneRound(playerSelection, computerSelection) {
             console.log(winString);
             console.log(`Computer Score: ${computerScore}`);
             console.log(`Player Score: ${playerScore}`);
-            alert(`${winString} 
+            alert(`${winString}
             Computer Score: ${computerScore} 
             Player Score: ${playerScore}`);
             return 'win';
