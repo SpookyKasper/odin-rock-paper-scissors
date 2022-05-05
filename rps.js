@@ -18,15 +18,15 @@ function oneRound(playerSelection, computerSelection) {
         return Math.floor(Math.random() * max)
     };
 
-    /* Create an array object named 'rockPaSc' that
+    /* Create an array object named 'rpsArray' that
     contains the 3 computer options for the game */
-    let rockPaSc = new Array('Rock', 'Paper', 'Scissors');
+    let rpsArray = ['Rock', 'Paper', 'Scissors'];
 
     /* Create a function named 'computerPlay' that 
     uses 'getRandomInt' to 
-    randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rockPaSc' array */
+    randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rpsArray' array */
     function computerPlay() {
-        return rockPaSc[getRandomInt(3)];
+        return rpsArray[getRandomInt(3)];
     }
 
     /* Create a function named 'cleanString' to 
@@ -141,6 +141,3 @@ function game(rounds){
         
     }
 }
-
-
-game(1);

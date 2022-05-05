@@ -10,18 +10,25 @@
 </head>
 <body>
     <script>
-        const container = document.createElement('div')
+        const container = document.createElement('div');
+        container.setAttribute('id', 'rps-container');
         console.log(container);
-        const rock = document.createElement('button');
-        const paper = document.createElement('button');
-        const scissors = document.createElement('button');
-        rock.textContent = 'Rock';
-        paper.textContent = 'Paper';
-        scissors.textContent = 'Scissors';
+
+        const rocButton = document.createElement('button');
+        rocButton.setAttribute('id', 'roc');
+        rocButton.textContent = 'Rock';
+
+        const papButton = document.createElement('button');
+        papButton.setAttribute('id', 'pap');
+        papButton.textContent = 'Paper';
+        
+        const sciButton = document.createElement('button');
+        sciButton.setAttribute('id', 'sci');
+        sciButton.textContent = 'Scissors';
 
         document.body.appendChild(container);
-        container.appendChild(rock);
-        container.appendChild(paper);
-        container.appendChild(scissors);
+        container.appendChild(rocButton);
+        container.appendChild(papButton);
+        container.appendChild(sciButton);
     </script>
 </body>
