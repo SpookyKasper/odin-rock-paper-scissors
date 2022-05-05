@@ -5,9 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Rock Paper Scissors</title>
-    <link rel="stylesheet" href="rock-paper-style.css">
-    <script src="rock-paper-script.js"></script>
+    <link rel="stylesheet" href="rps.css">
+    <!-- <script src="rps.js"></script> -->
 </head>
 <body>
-    
+    <script>
+        const container = document.createElement('div')
+        console.log(container);
+        const rock = document.createElement('button');
+        const paper = document.createElement('button');
+        const scissors = document.createElement('button');
+        rock.textContent = 'Rock';
+        paper.textContent = 'Paper';
+        scissors.textContent = 'Scissors';
+
+        document.body.appendChild(container);
+        container.appendChild(rock);
+        container.appendChild(paper);
+        container.appendChild(scissors);
+    </script>
 </body>
