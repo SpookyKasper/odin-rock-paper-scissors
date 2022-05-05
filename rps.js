@@ -5,56 +5,39 @@
 take two parameters' playerSelection' and 'computerSelection'
 compare the parameters and return a string 
 
-/* One Round:
-Ask user to pick Rock Paper or Scissors and store user input in variable 'playerSelection
-Generate computer Pick and store it in a variable 'playerSelection'
-Compare the two picks and return desired phrase according to the result of the comparaison */
 
+/* Randomly returns an integer between 0 and passed argument */
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max)
+};
+
+/* Contains the 3 computer options for the game */
+let rpsArray = ['Rock', 'Paper', 'Scissors'];
+
+/* Uses 'getRandomInt' to randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rpsArray' array */
+function computerPlay() {
+    return rpsArray[getRandomInt(3)];
+}
+
+/*  Checks if empty or capitalize passed string  */
+function cleanString(someString) {
+    if (someString === '' ) {
+        return 'nothing';
+    } else {
+        return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
+    }
+}
+
+/* Declares variable named 'playerChoice' of type string that
+stores capitalized user input of the */
+// let playerChoice = cleanString(prompt('Rock Paper or Scissors ?'));
+
+
+/* One Round: Compare the two selections and return adapted string */
 function oneRound(playerSelection, computerSelection) {
 
-    /* Create a function named 'getRandomInt' that 
-    randomly returns an integer between 0 and passed argument */
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max)
-    };
-
-    /* Create an array object named 'rpsArray' that
-    contains the 3 computer options for the game */
-    let rpsArray = ['Rock', 'Paper', 'Scissors'];
-
-    /* Create a function named 'computerPlay' that 
-    uses 'getRandomInt' to 
-    randomly returns either 'Rock', 'Paper' or 'Scissors' from the 'rpsArray' array */
-    function computerPlay() {
-        return rpsArray[getRandomInt(3)];
-    }
-
-    /* Create a function named 'cleanString' to 
-    capitalize and check for null input strings */
-    function cleanString(someString) {
-        if (someString === '' ) {
-            return 'nothing';
-        } else {
-            return someString[0].toUpperCase() + someString.slice(1).toLowerCase();
-        }
-    }   
-
-    /* Declares variable named 'playerChoice' of type string that
-    stores capitalized user input of the */
-    let playerChoice = cleanString(prompt('Rock Paper or Scissors ?'));
-
-    /* Assign playerChoice value to playerSelection and logs it */
-    playerSelection = playerChoice;
-    console.log(`Your selection was ${playerSelection}`);
-
-    /* Declares variable named 'computerChoice' of type string that
-    stores computer result of computerPlay function */
-    const computerChoice = computerPlay();
-
-    /* Assigns computerChoice value to computerSelection and logs it*/
-    computerSelection = computerChoice;
-    console.log(`Computer selection was ${computerSelection}`);
-
+    /* Assigns to computerSelection the result of computerPlay function */
+    computerSelection = computerPlay();
 
     /* Declares winning string, tie and loosing string */
     let winString = `You won the round! ${playerSelection} beats ${computerSelection}`;
@@ -104,10 +87,10 @@ function oneRound(playerSelection, computerSelection) {
     }
 }
 
+
 /* Declares score variables of type number with initial value of 0 */
     let computerScore = 0;
     let playerScore = 0;
-
 
 /* Create function named 'game()' that 
 runs 'oneRound' the passed number of times */

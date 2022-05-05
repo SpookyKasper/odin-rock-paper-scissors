@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Rock Paper Scissors</title>
     <link rel="stylesheet" href="rps.css">
-    <!-- <script src="rps.js"></script> -->
+    <script src="rps.js"></script>
 </head>
 <body>
     <script>
@@ -25,6 +25,11 @@
         const sciButton = document.createElement('button');
         sciButton.setAttribute('id', 'sci');
         sciButton.textContent = 'Scissors';
+
+        rocButton.addEventListener('click', () => oneRound('Rock'));
+        papButton.addEventListener('click', () => oneRound('Paper'));
+        sciButton.addEventListener('click', () => oneRound('Scissors'));
+        
 
         document.body.appendChild(container);
         container.appendChild(rocButton);
