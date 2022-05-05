@@ -21,40 +21,41 @@ function computerPlay() {
 
 let result = '';
 
+
 /* One Round: Compare the two selections and return adapted string */
 function oneRound(playerSelection, computerSelection) {
-
+    
     /* Assigns to computerSelection the result of computerPlay function */
     computerSelection = computerPlay();
     
     /* alerts what the user and computer selection are */
-    alert(`You picked ${playerSelection} the computer picked ${computerSelection}`)
-
+    resultBox.textContent = `You picked ${playerSelection} the computer picked ${computerSelection}`;
+    
     /* Declares three variables of type string with initial value of respectively winning string, tie and loosing string*/
     let winString = `You won the round! ${playerSelection} beats ${computerSelection}`;
     let tieString = "It's a tie!"
     let loseString = `You lost this round bro... ${computerSelection} beats ${playerSelection}`;
-
+    
     /* Compares inputs and returns a string depending on who wins */ 
     if (playerSelection == computerSelection) {
-        result = `${tieString} 
+        resultBox.textContent += `
+        ${tieString} 
         Computer Score: ${computerScore} 
         Player Score: ${playerScore}`;
-        console.log(result);
         return 'tie';
     } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
         ++computerScore;
-        result = `${loseString}
+        resultBox.textContent += `
+        ${loseString}
         Computer Score: ${computerScore} 
         Player Score: ${playerScore}`;
-        console.log(result);
         return 'lose';
     } else {
         ++playerScore;
-        result = `${winString}
+        resultBox.textContent += `
+        ${winString}
         Computer Score: ${computerScore} 
         Player Score: ${playerScore}`;
-        console.log(result);
         return 'win';
 
     }
