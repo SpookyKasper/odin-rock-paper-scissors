@@ -19,6 +19,8 @@ function computerPlay() {
     return rpsArray[getRandomInt(3)];
 }
 
+let result = '';
+
 /* One Round: Compare the two selections and return adapted string */
 function oneRound(playerSelection, computerSelection) {
 
@@ -35,23 +37,28 @@ function oneRound(playerSelection, computerSelection) {
 
     /* Compares inputs and returns a string depending on who wins */ 
     if (playerSelection == computerSelection) {
-        alert(`${tieString} 
+        result = `${tieString} 
         Computer Score: ${computerScore} 
-        Player Score: ${playerScore}`);
+        Player Score: ${playerScore}`;
+        console.log(result);
         return 'tie';
     } else if ( (playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')){
         ++computerScore;
-        alert(`${loseString}
+        result = `${loseString}
         Computer Score: ${computerScore} 
-        Player Score: ${playerScore}`);
+        Player Score: ${playerScore}`;
+        console.log(result);
         return 'lose';
     } else {
         ++playerScore;
-        alert(`${winString}
+        result = `${winString}
         Computer Score: ${computerScore} 
-        Player Score: ${playerScore}`);
+        Player Score: ${playerScore}`;
+        console.log(result);
         return 'win';
+
     }
+    
 }
 
 

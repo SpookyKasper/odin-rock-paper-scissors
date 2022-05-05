@@ -10,14 +10,14 @@
 </head>
 <body>
     <script>
-        const container = document.createElement('div');
-        container.setAttribute('id', 'rps-container');
-        console.log(container);
+        const buttonsBox = document.createElement('div');
+        buttonsBox.setAttribute('id', 'buttons-box');
 
+        
         const rocButton = document.createElement('button');
         rocButton.setAttribute('id', 'roc');
         rocButton.textContent = 'Rock';
-
+        
         const papButton = document.createElement('button');
         papButton.setAttribute('id', 'pap');
         papButton.textContent = 'Paper';
@@ -25,15 +25,19 @@
         const sciButton = document.createElement('button');
         sciButton.setAttribute('id', 'sci');
         sciButton.textContent = 'Scissors';
-
+        
         rocButton.addEventListener('click', () => oneRound('Rock'));
         papButton.addEventListener('click', () => oneRound('Paper'));
         sciButton.addEventListener('click', () => oneRound('Scissors'));
         
+        const resultBox = document.createElement('div');
+        resultBox.setAttribute('id', 'result-box');
+        resultBox.textContent = 'For Now';
 
-        document.body.appendChild(container);
-        container.appendChild(rocButton);
-        container.appendChild(papButton);
-        container.appendChild(sciButton);
+        document.body.appendChild(buttonsBox);
+        document.body.appendChild(resultBox);
+        buttonsBox.appendChild(rocButton);
+        buttonsBox.appendChild(papButton);
+        buttonsBox.appendChild(sciButton);
     </script>
 </body>
