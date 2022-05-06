@@ -58,6 +58,7 @@ function oneRound(playerPick, botPick) {
 
     if(gameIsOver){
         resultBox.style.color = 'black';
+        resultBox.style.border = 'none';
         resultBox.textContent = gameOverString;
         return;
     }
