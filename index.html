@@ -26,17 +26,25 @@
         sciButton.setAttribute('id', 'sci');
         sciButton.textContent = 'Scissors';
         
-        rocButton.addEventListener('click', () => oneRound('Rock'));
-        papButton.addEventListener('click', () => oneRound('Paper'));
-        sciButton.addEventListener('click', () => oneRound('Scissors'));
-        
         const resultBox = document.createElement('div');
         resultBox.setAttribute('id', 'result-box');
         resultBox.setAttribute('style', 'white-space: pre;');
         resultBox.textContent = `Let's go! choose your fighter!`;
 
+        const resButton = document.createElement('button');
+        resButton.setAttribute('id', 'restart');
+        resButton.textContent = 'Restart';
+        
+
+        rocButton.addEventListener('click', () => oneRound('Rock'));
+        papButton.addEventListener('click', () => oneRound('Paper'));
+        sciButton.addEventListener('click', () => oneRound('Scissors'));
+        resButton.addEventListener('click', () => restart());
+        
+
         document.body.appendChild(buttonsBox);
         document.body.appendChild(resultBox);
+        document.body.appendChild(resButton);
         buttonsBox.appendChild(rocButton);
         buttonsBox.appendChild(papButton);
         buttonsBox.appendChild(sciButton);
