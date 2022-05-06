@@ -31,6 +31,7 @@ function restart() {
     resultBox.textContent = startString;
     computerScore = 0;
     playerScore = 0;
+    resultBox.style.color = 'black';
 }
 
 
@@ -52,9 +53,11 @@ function oneRound(playerPick, botPick) {
     let loseGameString = nl + `Damn bro you where so close! try again!`;
     let gameOverString = `Game is over! if you want to play another time click the restart button!`;
 
+    resultBox.style.color = 'black';
     resultBox.textContent = selString;
 
     if(gameIsOver){
+        resultBox.style.color = 'black';
         resultBox.textContent = gameOverString;
         return;
     }
@@ -64,8 +67,10 @@ function oneRound(playerPick, botPick) {
         return 'tie';
     } else if ( (playerPick == 'Rock' && botPick == 'Paper') || (playerPick == 'Paper' && botPick == 'Scissors') || (playerPick == 'Scissors' && botPick == 'Rock')){
         ++computerScore;
+        resultBox.style.color = 'red';
         if (computerScore >= 5){
             gameIsOver = true;
+            resultBox.style.border = 'solid red';
             resultBox.textContent += loseGameString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
             return;
         } else {
@@ -74,8 +79,10 @@ function oneRound(playerPick, botPick) {
         }
     } else {
         ++playerScore;
+        resultBox.style.color = 'green';
         if(playerScore >= 5){
             gameIsOver = true;
+            resultBox.style.border = 'solid green';
             resultBox.textContent += winGameString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
             return;
         } else {
