@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#buttons-box{
+    display: flex;
+    justify-content: space-around;
+    color: red;
+    background-color: yellow;
+    margin: 20px;
+    padding: 20px 2px
+}
+
+button {
+    padding: 10px 20px;
+    hover:
+}
+
+button:hover{
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+#result-box{
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+    margin-bottom: 20px;
+    padding: 30px;
+    flex-shrink: 0;
+    text-align: center;
+}
