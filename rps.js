@@ -1,4 +1,3 @@
-
 /*---------------------------------- Create a Rock Paper Scissors game where the player plays against the computer --------------------------------*/
 
 /* This function plays a single round of Rock Paper Scissors, it 
@@ -21,83 +20,68 @@ function computerPlay() {
 
 // Declare a variable named gameIsOver of type boolean with initial value of false
 let gameIsOver = false;
-
+let startString = `Let's go! choose your fighter!`;
+/* Declares score variables of type number with initial value of 0 */
+let computerScore = 0;
+let playerScore = 0;
 
 // Declares a function named restart to reset the game
 function restart() {
     gameIsOver = false;
-    resultBox.textContent = `Let's go! choose your fighter!`;
+    resultBox.textContent = startString;
     computerScore = 0;
     playerScore = 0;
 }
 
 
+
 /* One Round: Compare the two selections and return adapted string */
 function oneRound(playerPick, botPick) {
-   
+    
     /* Assigns to botPick the result of computerPlay function */
     botPick = computerPlay();
     
-    /* alerts what the user and computer selection are */
-    resultBox.textContent = `You picked ${playerPick} the computer picked ${botPick}`;
     
+    let nl = `\r\n`
     /* Declares variables of type string with initial value of respectively winning string, tie and loosing string*/
-    let winString = `You won the round! ${playerPick} beats ${botPick}`;
-    let tieString = "It's a tie!"
-    let loseString = `You lost this round bro... ${botPick} beats ${playerPick}`;
-    let winGameString = `Congratulations! The game is over and you Won! Wouhouuouo!!!`;
-    let loseGameString = `Damn bro you where so close! try again!`;
+    let selString = `You picked ${playerPick} the computer picked ${botPick}`;
+    let tieString = nl + "It's a tie!";
+    let winString = nl + `You won the round! ${playerPick} beats ${botPick}`;
+    let loseString = nl + `You lost this round bro... ${botPick} beats ${playerPick}`;
+    let winGameString = nl + `Congratulations! The game is over and you Won! Wouhouuouo!!!`;
+    let loseGameString = nl + `Damn bro you where so close! try again!`;
+    let gameOverString = `Game is over! if you want to play another time click the restart button!`;
 
-    let tieFullQuote = `
-
-    ${tieString} 
-    Computer Score: ${computerScore} 
-    Player Score: ${playerScore}`;
-
+    resultBox.textContent = selString;
 
     if(gameIsOver){
-        resultBox.textContent = `Game is over! if you want to play another time click the restart button!`;
+        resultBox.textContent = gameOverString;
         return;
     }
-
     /* Compares inputs and returns a string depending on who wins */ 
     if (playerPick == botPick) {
-        resultBox.textContent += tieFullQuote;
+        resultBox.textContent += tieString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
         return 'tie';
     } else if ( (playerPick == 'Rock' && botPick == 'Paper') || (playerPick == 'Paper' && botPick == 'Scissors') || (playerPick == 'Scissors' && botPick == 'Rock')){
         ++computerScore;
         if (computerScore >= 5){
-            resultBox.textContent += `
-
-            ${loseGameString}
-            Computer Score: ${computerScore} 
-            Player Score: ${playerScore}`;
             gameIsOver = true;
+            resultBox.textContent += loseGameString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
+            return;
+        } else {
+            resultBox.textContent += loseString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
             return;
         }
-        resultBox.textContent += `
-
-        ${loseString}
-        Computer Score: ${computerScore} 
-        Player Score: ${playerScore}`;
-        return;
     } else {
         ++playerScore;
         if(playerScore >= 5){
-            resultBox.textContent += `
-            
-            ${winGameString}
-            Computer Score: ${computerScore} 
-            Player Score: ${playerScore}`;
             gameIsOver = true;
+            resultBox.textContent += winGameString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;;
+            return;
+        } else {
+            resultBox.textContent += winString + nl + `Computer Score: ${computerScore}` + nl + `Player Score: ${playerScore}`;
             return;
         }
-        resultBox.textContent += `
-
-        ${winString}
-        Computer Score: ${computerScore} 
-        Player Score: ${playerScore}`;
-        return;
 
     }    
 }
@@ -105,9 +89,6 @@ function oneRound(playerPick, botPick) {
 
 
 
-/* Declares score variables of type number with initial value of 0 */
-    let computerScore = 0;
-    let playerScore = 0;
 
 /* Create function named 'game()' that 
 runs 'oneRound' the passed number of times */
